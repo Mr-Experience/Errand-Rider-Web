@@ -1,12 +1,16 @@
-import './App.css'
+import './App.css';
+import Header from './components/Header';
+import Hero from './components/Hero';
 
 function App() {
   return (
-    <div className="app-container">
-      <h1>Dashboard Environment Ready</h1>
-      <p>Start building your design here.</p>
-    </div>
-  )
+    <>
+      <Header />
+      <div className="app-container">
+        <Hero />
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;

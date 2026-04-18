@@ -1,0 +1,192 @@
+.hero-section {
+  background-color: #FFF1D8;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 40px; /* Space at the bottom */
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 10;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 40px; /* Gap from images */
+}
+
+.download-btn {
+  background-color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  height: 28px;
+  width: auto;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.btn-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #666;
+}
+
+.btn-store {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+.hero-images-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: auto; /* Push it to the bottom */
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: 0;
+}
+
+.hero-img {
+  max-height: 380px; 
+  object-fit: contain;
+}
+
+.hero-img + .hero-img {
+  margin-left: -80px;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 60px 20px 0 20px; /* Flush bottom padding */
+  }
+
+  .hero-content {
+    margin-top: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: row; /* Force side by side */
+    flex-wrap: nowrap; /* Prevent stacking */
+    gap: 8px; /* Slightly tighter gap */
+    width: 100%;
+    justify-content: center;
+  }
+
+  .download-btn {
+    width: auto;
+    padding: 12px 20px; /* Slightly smaller padding for mobile fit */
+    font-size: 14px;
+  }
+
+  .hero-images-container {
+    margin-top: 40px;
+    height: auto;
+    transform: none;
+    padding-bottom: 0;
+  }
+
+  .hero-img {
+    max-height: 250px;
+  }
+
+  .hero-img + .hero-img {
+    margin-left: -40px;
+  }
+}
+
+.mobile-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 380px;
+}
+
+.mobile-anim {
+  transition: opacity 0.4s ease-in-out;
+}
+
+.mobile-anim.abs {
+  position: absolute;
+  transform: scale(1.3); /* Make the fruit basket significantly larger */
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-image-wrapper {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding-bottom: 32px; /* Original 8px + requested 24px */
+  }
+  
+  .mobile-image-wrapper {
+    height: 180px;
+  }
+}
