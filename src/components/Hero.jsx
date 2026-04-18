@@ -6,25 +6,13 @@ import playstoreIcon from '../assets/playstore.svg';
 import appstoreIcon from '../assets/appstore.svg';
 
 const Hero = () => {
-  const [showBasket, setShowBasket] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 800);
     window.addEventListener('resize', handleResize);
-    
-    let interval;
-    if (isMobile) {
-      interval = setInterval(() => {
-        setShowBasket(prev => !prev);
-      }, 2000); 
-    }
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (interval) clearInterval(interval);
-    };
-  }, [isMobile]);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const getDownloadLink = () => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -40,9 +28,13 @@ const Hero = () => {
   return (
     <div className="hero-section">
       <div className="hero-content">
-        <h1>Everything You Need,<br />Right to Your Door</h1>
-        <p>Shop, send packages, and get what you need without<br />stepping out. Fast and reliable</p>
-        <div className="hero-buttons">
+        <h1 className="reveal fade-up" style={{ animationDelay: '0.1s' }}>
+          Everything You Need,<br />Right to Your Door
+        </h1>
+        <p className="reveal fade-up" style={{ animationDelay: '0.3s' }}>
+          Shop, send packages, and get what you need without<br />stepping out. Fast and reliable
+        </p>
+        <div className="hero-buttons reveal fade-up" style={{ animationDelay: '0.5s' }}>
           <button className="download-btn">
             <img src={playstoreIcon} alt="Play Store" className="btn-icon" />
             <div className="btn-text">
@@ -60,19 +52,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="hero-images-container">
+      <div className="hero-images-container reveal scale-up" style={{ animationDelay: '0.8s' }}>
         {isMobile ? (
           <div className="mobile-image-wrapper">
-            <img 
-              src={road} 
-              alt="Bike" 
-              className={`hero-img mobile-anim ${showBasket ? 'fade-out' : 'fade-in'}`} 
-            />
-            <img 
-              src={illustration} 
-              alt="Basket" 
-              className={`hero-img mobile-anim abs ${showBasket ? 'fade-in' : 'fade-out'}`} 
-            />
+            <img src={road} alt="Bike" className="hero-img" />
           </div>
         ) : (
           <>
